@@ -1,0 +1,53 @@
+import java.util.*;
+import java.util.ArrayList;
+class Employee{
+    String name;
+    String designation;
+    Double Salary;
+
+    Employee(String n, String d, Double S){
+        this.name = n;
+        this.Salary = S;
+        this.designation = d;
+    }
+}
+
+class Main{
+    public static void main(String[] args){
+        Employee e1 = new Employee("Joanny", "Manager", 50000.0);
+        Employee e2 = new Employee("Faiz", "Developer", 40000.0);
+        Employee e3 = new Employee("Moshi", "Designer", 35000.0);
+
+        ArrayList<Employee> emp= new ArrayList<>();
+        emp.add(e1);
+        emp.add(e2);
+        emp.add(e3);
+        emp.add(new Employee("Lithish","Programmer",40000.0));
+        emp.add(new Employee("Fizz","Tester",25000.0));
+        emp.add(new Employee("Boomi","Watchwoman",20000.0));
+        String st;
+        System.out.println("Enter the name of the employee to search: ");
+        Scanner sc = new Scanner(System.in);
+        st = sc.nextLine();
+        for(Employee e: emp){
+            if(e.name.contains(st)){
+                System.out.println("Employee found: " + e.name + ", " + e.designation + ", " + e.Salary);
+                break;
+            }
+        }
+        System.out.println("All the Employee Details ");
+        for(Employee e:emp){
+            System.out.println(e.name + ", " + e.designation + ", " + e.Salary);
+        }
+
+        
+        Employee h = emp.get(0);
+        for(Employee e:emp){
+            if(e.Salary > h.Salary){
+                h=e;
+            }
+        }
+        System.out.println("The highest earning employee is: "+h.name);
+
+    }
+}
